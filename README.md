@@ -2,7 +2,7 @@
 
 A tool for recursively iterating through DOM trees
 
-[What](what) || [How](how) || [Why](why) || [Erm](erm)
+[What](#what) | [How](#how) | [Why](#why) | [Erm](#erm)
 
 ## What?
 
