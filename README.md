@@ -14,7 +14,7 @@ For convenience, function endpoints can return further endpoints, allowing ad-ho
 
 ## How?
 
-```javascript
+```es6
 trier({
   'svg.container' : container => {                         // For each `svg.container`
     const [{width: maxWidth}] = container.getClientRects() // Get the width
@@ -79,7 +79,7 @@ Trier, compared to other tools like D3 or virtual DOM libs like React:
 
 ### [1] DOM matching structure
 
-```javascript
+```es6
 trier( {
   'svg' : {
     'rect:first-child'           : rect        => actOn1st( rect ),
@@ -90,7 +90,7 @@ trier( {
 
 ### [2] Flexible sequence of operations
 
-```javascript
+```es6
 trier( {
   'svg' : [
     svg => doThisBefore( svg ),
@@ -107,7 +107,7 @@ trier( {
 
 ### [3] Flexible concentric scopes
 
-```javascript
+```es6
 trier( {
   'svg' : svg => {
     const reference = doThisBefore( svg )
