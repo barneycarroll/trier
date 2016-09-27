@@ -14,7 +14,7 @@ For convenience, function endpoints can return further endpoints, allowing ad-ho
 
 ## How?
 
-```es6
+```javascript
 trier({
   'svg.container' : container => {                         // For each `svg.container`
     const [{width: maxWidth}] = container.getClientRects() // Get the width
@@ -79,25 +79,25 @@ Trier, compared to other tools like D3 or virtual DOM libs like React:
 
 ### [1] DOM matching structure
 
-```es6
+```javascript
 trier( {
   'svg' : {
-    'rect:first-child'           : rect        => actOn1st( rect ),
-    'rect:not( 'first-child' )'  : ( rect, i ) => actOnRest( rect, i )
+    'rect:first-child'         : rect        => actOn1st( rect ),
+    'rect:not( first-child )'  : ( rect, i ) => actOnRest( rect, i )
   }
 } )
 ```
 
 ### [2] Flexible sequence of operations
 
-```es6
+```javascript
 trier( {
   'svg' : [
     svg => doThisBefore( svg ),
 
     {
-      'rect:first-child'           : rect        => actOn1st( rect ),
-      'rect:not( 'first-child' )'  : ( rect, i ) => actOnRest( rect, i )
+      'rect:first-child'         : rect        => actOn1st( rect ),
+      'rect:not( first-child )'  : ( rect, i ) => actOnRest( rect, i )
     },
 
     svg => doThisAfter( svg )
@@ -107,15 +107,15 @@ trier( {
 
 ### [3] Flexible concentric scopes
 
-```es6
+```javascript
 trier( {
   'svg' : svg => {
     const reference = doThisBefore( svg )
 
     return [
       {
-        'rect:first-child'           : rect        => actOn1st( rect, reference ),
-        'rect:not( 'first-child' )'  : ( rect, i ) => actOnRest( rect, reference )
+        'rect:first-child'         : rect        => actOn1st( rect, reference ),
+        'rect:not( first-child )'  : ( rect, i ) => actOnRest( rect, reference )
       },
 
       svg => doThisAfter( svg )
